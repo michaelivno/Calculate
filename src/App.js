@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/buttons';
+import { Grid ,Header, Icon,Segment,Input} from 'semantic-ui-react';
 
 
 export default class App extends Component {
@@ -79,13 +80,37 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <input type="text" value={this.state.numbers} />
+      <div style={divStyle} className="App">
+        <Grid.Row columns={1}>
+          <Grid.Column>
+      <Header style={{padding: '0px 0px 0px 10%'}} as='h2'>
+    <Icon name='calculator' />
+    <Header.Content>
+     Calculator
+      <Header.Subheader>
+        Manage your Numbers
+      </Header.Subheader>
+    </Header.Content>
+  </Header>
+  </Grid.Column>
+  </Grid.Row>
+      <Segment  inverted>
+        <Input style={intStyle} type="text" value={this.state.numbers} />
         <Buttons cal={number => this.calculate(number)} />
+          </Segment>
 
       </div>
     );
   }
 }
 
-
+const divStyle ={
+  margin: '100px 500px ',
+  minWidth: "200px",
+  maxWidth: "350px"  
+  
+  
+}
+ const intStyle ={
+  margin: "0px 0px 20px 0px",
+ }
